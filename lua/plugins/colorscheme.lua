@@ -1,4 +1,10 @@
 return {
+  { "ellisonleao/gruvbox.nvim" },
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = { style = "moon" },
+  },
 
   -- catppuccin
   {
@@ -42,6 +48,12 @@ return {
         treesitter_context = true,
         which_key = true,
       },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight",
     },
   },
 }
