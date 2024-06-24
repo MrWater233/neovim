@@ -4,6 +4,13 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
+-- Auto save file when focus lost
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+  callback = function()
+    vim.cmd([[silent! wa]])
+  end,
+})
+
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = augroup("checktime"),
